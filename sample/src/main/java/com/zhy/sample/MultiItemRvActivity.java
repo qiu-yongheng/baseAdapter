@@ -10,24 +10,22 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.wrapper.LoadMoreWrapper;
+import com.zhy.adapter.recyclerview.wrapper.LoadmoreWrapper;
 import com.zhy.sample.adapter.rv.ChatAdapterForRv;
 import com.zhy.sample.bean.ChatMessage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiItemRvActivity extends AppCompatActivity
-{
+public class MultiItemRvActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
 
-    private LoadMoreWrapper mLoadMoreWrapper;
+    private LoadmoreWrapper mLoadMoreWrapper;
     private List<ChatMessage> mDatas = new ArrayList<>();
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recyclerview);
 
@@ -39,18 +37,14 @@ public class MultiItemRvActivity extends AppCompatActivity
         mDatas.addAll(ChatMessage.MOCK_DATAS);
         ChatAdapterForRv adapter = new ChatAdapterForRv(this, mDatas);
 
-        mLoadMoreWrapper = new LoadMoreWrapper(adapter);
+        mLoadMoreWrapper = new LoadmoreWrapper(adapter);
         mLoadMoreWrapper.setLoadMoreView(LayoutInflater.from(this).inflate(R.layout.default_loading, mRecyclerView, false));
-        mLoadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener()
-        {
+        mLoadMoreWrapper.setOnLoadMoreListener(new LoadmoreWrapper.OnLoadMoreListener() {
             @Override
-            public void onLoadMoreRequested()
-            {
-                new Handler().postDelayed(new Runnable()
-                {
+            public void onLoadMoreRequested() {
+                new Handler().postDelayed(new Runnable() {
                     @Override
-                    public void run()
-                    {
+                    public void run() {
                         boolean coming = Math.random() > 0.5;
                         ChatMessage msg = null;
                         msg = new ChatMessage(coming ? R.drawable.renma : R.drawable.xiaohei, coming ? "人马" : "xiaohei", "where are you " + mDatas.size(),
@@ -63,18 +57,15 @@ public class MultiItemRvActivity extends AppCompatActivity
             }
         });
 
-        adapter.setOnItemClickListener(new CommonAdapter.OnItemClickListener()
-        {
+        adapter.setOnItemClickListener(new CommonAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, RecyclerView.ViewHolder holder,  int position)
-            {
-                Toast.makeText(MultiItemRvActivity.this, "Click:" + position , Toast.LENGTH_SHORT).show();
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                Toast.makeText(MultiItemRvActivity.this, "Click:" + position, Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position)
-            {
-                Toast.makeText(MultiItemRvActivity.this, "LongClick:" + position , Toast.LENGTH_SHORT).show();
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                Toast.makeText(MultiItemRvActivity.this, "LongClick:" + position, Toast.LENGTH_SHORT).show();
                 return false;
             }
         });

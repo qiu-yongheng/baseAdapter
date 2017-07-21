@@ -13,7 +13,7 @@ import com.zhy.adapter.recyclerview.utils.WrapperUtils;
 /**
  * Created by zhy on 16/6/23.
  */
-public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder>
+public class LoadmoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
     public static final int ITEM_TYPE_LOAD_MORE = Integer.MAX_VALUE - 2;
 
@@ -21,7 +21,7 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
     private View mLoadMoreView;
     private int mLoadMoreLayoutId;
 
-    public LoadMoreWrapper(RecyclerView.Adapter adapter)
+    public LoadmoreWrapper(RecyclerView.Adapter adapter)
     {
         mInnerAdapter = adapter;
     }
@@ -139,7 +139,7 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     private OnLoadMoreListener mOnLoadMoreListener;
 
-    public LoadMoreWrapper setOnLoadMoreListener(OnLoadMoreListener loadMoreListener)
+    public LoadmoreWrapper setOnLoadMoreListener(OnLoadMoreListener loadMoreListener)
     {
         if (loadMoreListener != null)
         {
@@ -148,13 +148,13 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
         return this;
     }
 
-    public LoadMoreWrapper setLoadMoreView(View loadMoreView)
+    public LoadmoreWrapper setLoadMoreView(View loadMoreView)
     {
         mLoadMoreView = loadMoreView;
         return this;
     }
 
-    public LoadMoreWrapper setLoadMoreView(int layoutId)
+    public LoadmoreWrapper setLoadMoreView(int layoutId)
     {
         mLoadMoreLayoutId = layoutId;
         return this;
