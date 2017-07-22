@@ -26,6 +26,7 @@ public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T> {
         mLayoutId = layoutId;
         mDatas = datas;
 
+        /** 默认实现一个item类型, 数据绑定抽象出来给子类实现 */
         addItemViewDelegate(new ItemViewDelegate<T>() {
             @Override
             public int getItemViewLayoutId() {
@@ -46,6 +47,4 @@ public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T> {
     }
 
     protected abstract void convert(ViewHolder holder, T t, int position);
-
-
 }
