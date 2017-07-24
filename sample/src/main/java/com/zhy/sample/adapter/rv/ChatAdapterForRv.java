@@ -14,6 +14,7 @@ public class ChatAdapterForRv extends MultiItemTypeAdapter<ChatMessage> {
     public ChatAdapterForRv(Context context, List<ChatMessage> datas) {
         super(context, datas);
 
+        // 添加item类型, 数据绑定, view初始化已在内部处理
         addItemViewDelegate(new MsgSendItemDelagate());
         addItemViewDelegate(new MsgComingItemDelagate());
     }

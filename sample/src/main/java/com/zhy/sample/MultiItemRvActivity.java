@@ -34,7 +34,9 @@ public class MultiItemRvActivity extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // 添加模拟数据
         mDatas.addAll(ChatMessage.MOCK_DATAS);
+
         ChatAdapterForRv adapter = new ChatAdapterForRv(this, mDatas);
 
         mLoadMoreWrapper = new LoadmoreWrapper(adapter);

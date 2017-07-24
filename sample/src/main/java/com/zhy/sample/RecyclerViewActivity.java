@@ -23,6 +23,9 @@ import com.zhy.adapter.recyclerview.wrapper.LoadmoreWrapper;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class RecyclerViewActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
@@ -47,6 +50,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         //        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
 
+        // 创建通用的adapter
         mAdapter = new CommonAdapter<String>(this, R.layout.item_list, mDatas) {
             @Override
             protected void convert(ViewHolder holder, String s, int position) {
@@ -54,6 +58,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
             }
         };
 
+        // 装饰者模式, 添加header, foot
         initHeaderAndFooter();
 
         //        initEmptyView();
@@ -72,7 +77,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
                         mLoadMoreWrapper.notifyDataSetChanged();
 
                     }
-                }, 3000);
+                }, 1000);
             }
         });
 
