@@ -51,7 +51,7 @@ public class MultiItemTypeAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
             return super.getItemViewType(position);
         }
 
-        /** 给子类判断item类型 */
+        /** 给子类判断item类型 这里会调用子类: isForViewType */
         return mItemViewDelegateManager.getItemViewType(mDatas.get(position), position);
     }
 
